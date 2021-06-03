@@ -167,14 +167,21 @@ namespace LensMod
                 orig(self, damageInfo);
                 return;
             }
-            
-            var item_count = dmgSource.GetComponent<CharacterBody>().inventory.GetItemCount(this.Definition);
-            if (item_count > 0)
+
+            var body = dmgSource.GetComponent<CharacterBody>();
+            if (body != null)
             {
-                if (damageInfo.crit)
+                if (body.inventory != null)
                 {
-                    var modifier = LensItem.CalculateDamageModifier(item_count) + 1f;
-                    damageInfo.damage *= modifier;
+                    var item_count = body.inventory.GetItemCount(this.Definition);
+                    if (item_count > 0)
+                    {
+                        if (damageInfo.crit)
+                        {
+                            var modifier = LensItem.CalculateDamageModifier(item_count) + 1f;
+                            damageInfo.damage *= modifier;
+                        }
+                    }
                 }
             }
 

@@ -10,7 +10,7 @@ namespace LensMod
     [BepInPlugin(ModGuid, ModName, ModVer)]
     public class LensMod : BaseUnityPlugin
     {
-        private const string ModVer = "1.0.1";
+        private const string ModVer = "1.0.2";
         private const string ModName = "LensMod";
         private const string ModGuid = "com.headline.lensmod";
 
@@ -23,7 +23,7 @@ namespace LensMod
 
             On.RoR2.HealthComponent.TakeDamage += item.OnTakeDamage;
         }
-
+        
         private void AddItem(LensItem item)
         {
             var lens_item = new CustomItem(item.Definition, item.BuildDisplayRules());
