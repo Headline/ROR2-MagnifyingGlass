@@ -10,7 +10,7 @@ namespace LensMod
     [BepInPlugin(ModGuid, ModName, ModVer)]
     public class LensMod : BaseUnityPlugin
     {
-        private const string ModVer = "1.0.2";
+        private const string ModVer = "1.0.3";
         private const string ModName = "LensMod";
         private const string ModGuid = "com.headline.lensmod";
 

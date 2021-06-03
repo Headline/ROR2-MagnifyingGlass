@@ -3,6 +3,7 @@ using System.Reflection;
 using R2API;
 using RoR2;
 using UnityEngine;
+
 using static On.RoR2.HealthComponent;
 
 namespace LensMod
@@ -36,6 +37,9 @@ namespace LensMod
             var itemdef = ScriptableObject.CreateInstance<ItemDef>();
             itemdef.name = "LENSITEM";
             itemdef.tier = ItemTier.Tier2;
+            itemdef.tags = new[]{
+                ItemTag.Damage
+            };
             itemdef.pickupModelPrefab = this.ItemModel;
             itemdef.pickupIconSprite = this.ItemIcon;
             itemdef.nameToken = "Lens Maker's Magnifying Glass";

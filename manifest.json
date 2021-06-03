@@ -1,6 +1,6 @@
 {
     "name": "LensMakersMagnifyingGlass",
-    "version_number": "1.0.2",
+    "version_number": "1.0.3",
     "website_url": "https://github.com/Headline/ROR2-MagnifyingGlass",
     "description": "An on-hit crit damage amp item. For when your crits don't feel like they're critting like they used to.",
     "dependencies": [
