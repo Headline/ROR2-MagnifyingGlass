@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
+using ItemStats;
+using ItemStats.Stat;
 using R2API;
 using RoR2;
 using UnityEngine;
@@ -32,10 +35,24 @@ namespace LensMod
             }
         }
 
+        public ItemStatDef CreateItemStatDef()
+        {
+            return new ItemStatDef
+            {
+                Stats = new List<ItemStat>
+                {
+                    new ItemStat(
+                        (itemCount, ctx) => CalculateDamageModifier((int)itemCount) + 1f,
+                        (value, ctx) => $"Damage modifier: <style=cIsDamage>x{value:0.00}</style>"
+                    )
+                }
+            };
+        }
+
         private ItemDef BuildItemDefinition()
         {
             var itemdef = ScriptableObject.CreateInstance<ItemDef>();
-            itemdef.name = "LENSITEM";
+            itemdef.name = "LensMakersMagnifyingGlass";
             itemdef.tier = ItemTier.Tier2;
             itemdef.tags = new[]{
                 ItemTag.Damage
@@ -44,7 +61,7 @@ namespace LensMod
             itemdef.pickupIconSprite = this.ItemIcon;
             itemdef.nameToken = "Lens Maker's Magnifying Glass";
             itemdef.pickupToken = "Critical strike damage is increased";
-            itemdef.descriptionToken = "Critical strike damage is increased! Stacks to a maximum of double the damage.";
+            itemdef.descriptionToken = "<style=cIsDamage>Critical strike damage</style> is increased.";
             itemdef.loreToken = "The prototype for the lens but it didnt work so the lens maker brought it to the government and the government said no and lens man said arr and then killed someone with them";
             return itemdef;
         }

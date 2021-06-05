@@ -5,9 +5,12 @@ Ever wanted more damage with your crit? Well here you go!
 
 
 ## Implementation
-On hit, if you crit, the magnifying glass will increase your hit damage based on the amount of magnifying glasses you have. With diminishing returns, you can expect to max out at around 10 of these for double damage per crit. Expect balance changes in the future based off of user feedback.
+On hit, if you crit, the magnifying glass will increase your hit damage based on the amount of magnifying glasses you have. With diminishing returns, you can expect to max out at around 10 of these for a total of 200% damage per crit. Expect balance changes in the future based off of user feedback.
 
 ## Changelog
+1.1.0
+ - Add colored text in item description and add support for ItemStatsMod
+
 1.0.3
  - Place item into damage category. This ensures it's possible to recieve in red chests.
 
