@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using ItemStats;
-using ItemStats.Stat;
 using R2API;
 using RoR2;
 using UnityEngine;
@@ -35,25 +33,11 @@ namespace LensMod
             }
         }
 
-        public ItemStatDef CreateItemStatDef()
-        {
-            return new ItemStatDef
-            {
-                Stats = new List<ItemStat>
-                {
-                    new ItemStat(
-                        (itemCount, ctx) => CalculateDamageModifier((int)itemCount) + 1f,
-                        (value, ctx) => $"Damage modifier: <style=cIsDamage>x{value:0.00}</style>"
-                    )
-                }
-            };
-        }
-
         private ItemDef BuildItemDefinition()
         {
             var itemdef = ScriptableObject.CreateInstance<ItemDef>();
             itemdef.name = "LensMakersMagnifyingGlass";
-            itemdef.tier = ItemTier.Tier2;
+            itemdef.deprecatedTier = ItemTier.Tier2;
             itemdef.tags = new[]{
                 ItemTag.Damage
             };
